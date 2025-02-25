@@ -25,3 +25,5 @@
 from .siglent_spd1168x import SPD1168X
 from .siglent_spd1305x import SPD1305X
 from .siglent_sds1072cml import SDS1072CML
+from .siglent_sds1204xhd import SDS1204XHD
+from .siglent_sdg2042x import SDG2042X
