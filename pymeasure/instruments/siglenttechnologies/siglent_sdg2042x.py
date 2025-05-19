@@ -1,5 +1,5 @@
 from pymeasure.instruments import Instrument
-from pymeasure.instruments.validators import truncated_range
+
 
 class SDG2042X(Instrument):
     """
@@ -19,7 +19,7 @@ class SDG2042X(Instrument):
         )
 
     def reset(self):
-        """Resets the instrument."""
+        """Reset the instrument."""
         self.write("*RST")
     
     def idn(self):
@@ -27,7 +27,7 @@ class SDG2042X(Instrument):
         return self.ask("*IDN?")
     
     def set_waveform(self, channel, waveform):
-        """Sets the waveform type on a channel."""
+        """Set the waveform type on a channel."""
         self.write(f"C{channel}:BSWV WVTP,{waveform}")
     
     def set_frequency(self, channel, frequency):
@@ -35,11 +35,11 @@ class SDG2042X(Instrument):
         self.write(f"C{channel}:BSWV FRQ,{frequency}")
     
     def set_amplitude(self, channel, amplitude):
-        """Sets the amplitude of the waveform on a channel."""
+        """Set the amplitude of the waveform on a channel."""
         self.write(f"C{channel}:BSWV AMP,{amplitude}")
     
     def set_offset(self, channel, offset):
-        """Sets the DC offset of the waveform on a channel."""
+        """Set the DC offset of the waveform on a channel."""
         self.write(f"C{channel}:BSWV OFST,{offset}")
     
     def set_phase(self, channel, phase):
@@ -47,7 +47,7 @@ class SDG2042X(Instrument):
         self.write(f"C{channel}:BSWV PHSE,{phase}")
     
     def enable_output(self, channel, state=True):
-        """Enables or disables the output for a channel."""
+        """Enable or disable the output for a channel."""
         status = "ON" if state else "OFF"
         self.write(f"C{channel}:OUTP {status}")
     
@@ -56,7 +56,7 @@ class SDG2042X(Instrument):
         return self.ask(f"C{channel}:BSWV?")
     
     def load_arbitrary_waveform(self, channel, name):
-        """Loads an arbitrary waveform by name."""
+        """Load an arbitrary waveform by name."""
         self.write(f"C{channel}:ARWV NAME,{name}")
     
 

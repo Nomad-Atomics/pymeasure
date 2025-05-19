@@ -1,7 +1,8 @@
-import numpy as np
-from pymeasure.instruments import Instrument
-import time
 import struct
+import time
+
+from pymeasure.instruments import Instrument
+
 
 class SDS1204XHD(Instrument):
     def __init__(self, resourceName, **kwargs):
@@ -68,9 +69,9 @@ class SDS1204XHD(Instrument):
         return filename
     
     def configure_fft_fullscreen(self,channel, max_frequency):
-        '''sets function 1 to pull channel data and display as full FFT screen with a given max range
+        """Set function 1 to pull channel data and display as full FFT screen with a given max range
         Returns read back max value of FFT measurement in dBm
-        '''
+        """
         
         #Hide input waveform
         self.write(":CHANnel1:VISible OFF")
